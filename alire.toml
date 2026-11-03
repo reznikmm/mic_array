@@ -1,0 +1,27 @@
+name = "mic_array"
+description = "mic_array is"
+version = "0.1.0-dev"
+
+authors = ["Max Reznik"]
+maintainers = ["Max Reznik <reznikmm@gmail.com>"]
+maintainers-logins = ["reznikmm"]
+licenses = "Apache-2.0 WITH LLVM-exception"
+website = "https://github.com/reznikmm/mic_array"
+tags = []
+
+[build-switches]
+"*".Ada_Version = "Ada2022"
+development.optimization = ["-O0"]
+development.style_checks = ["-gnaty", "-gnaty-B"]
+development.contracts = "Yes"
+"*".debug_info = "Yes"
+
+[[actions]]
+type = "test"
+command = ["alr", "-C" , "testsuite", "run"]
+
+[[depends-on]]
+light_tasking_stm32f4xx = "^16.0.0-dev"
+
+[[pins]]
+light_tasking_stm32f4xx = { url="https://github.com/reznikmm/community-bb-runtimes", subdir="light-tasking-stm32f4xx", branch="16.0.0" }
